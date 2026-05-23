@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Portfólio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <style>
+
+    /* ===== FONTE PERSONALIZADA ===== */
+
+    @font-face {
+      font-family: 'Starborn';
+      src: url('./font/Starborn.ttf') format('truetype');
+    }
+
+    /* ===== RESET ===== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #dbefff, #edf7ff, #cfe9ff);
+      min-height: 100vh;
+      color: #334155;
+      overflow-x: hidden;
+    }
+
+    /* ===== FUNDO ===== */
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.9), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(191,219,254,0.5), transparent 25%),
+        radial-gradient(circle at center, rgba(147,197,253,0.2), transparent 35%);
+
+      pointer-events: none;
+    }
+
+    /* ===== NAVBAR ===== */
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 30px 60px;
+    }
+
+    .logo-area {
+      display: flex;
+      gap: 15px;
+    }
+
+    .circle-btn {
+      width: 60px;
+      height: 60px;
+
+      border-radius: 18px;
+
+      background: rgba(255,255,255,0.82);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 1.8rem;
+
+      backdrop-filter: blur(10px);
+
+      box-shadow: 0 5px 18px rgba(96,165,250,0.12);
+    }
+
+    .plus {
+      background: linear-gradient(135deg, #93c5fd, #bae6fd);
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+    }
+
+    .nav-links .active::after {
+      content: '';
+
+      position: absolute;
+
+      width: 100%;
+      height: 4px;
+
+      left: 0;
+      bottom: -10px;
+
+      border-radius: 20px;
+
+      background: #93c5fd;
+    }
+
+    /* ===== HERO ===== */
+.hero-banner {
+
+  width: 92%;
+
+  min-height: 500px;
+
+  margin: auto;
+  margin-top: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #eff8ff,
+    #dbefff,
+    #c7e6ff
+  );
+
+  border-radius: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 60px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  box-shadow: 0 10px 35px rgba(96,165,250,0.15);
+}
+
+.hero-left h1 {
+
+  font-family: 'Starborn', sans-serif !important;
+
+  font-size: 5rem;
+
+  margin-bottom: 10px;
+
+  color: #1e293b;
+
+  text-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+.hero-right {
+
+  width: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-character {
+
+  width: 420px;
+
+  max-width: 100%;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 0 25px rgba(147,197,253,0.35));
+
+  transition: 0.3s;
+}
+
+.hero-character:hover {
+
+  transform: scale(1.03);
+}
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      padding: 40px;
+
+      background: rgba(255,255,255,0.18);
+
+      backdrop-filter: blur(2px);
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.95);
+
+      padding: 10px 22px;
+
+      border-radius: 999px;
+
+      font-weight: 600;
+
+      margin-bottom: 20px;
+    }
+
+    /* ===== TITULO COM STARBORN ===== */
+
+    .hero-content h1 {
+      font-family: 'Starborn', sans-serif !important;
+
+      font-size: 5rem;
+
+      margin-bottom: 10px;
+
+      color: #1e293b;
+
+      text-shadow: 0 0 15px rgba(255,255,255,0.8);
+    }
+
+    .hero-content h3 {
+      color: #3b82f6;
+
+      margin-bottom: 20px;
+
+      font-size: 2rem;
+    }
+
+    .hero-content p {
+      max-width: 700px;
+
+      font-size: 1.2rem;
+    }
+
+    /* ===== CONTAINER ===== */
+
+    .container {
+      width: 92%;
+      margin: auto;
+
+      padding: 40px 0;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.72);
+
+      border-radius: 30px;
+
+      padding: 30px;
+
+      margin-bottom: 35px;
+
+      border: 1px solid rgba(255,255,255,0.95);
+
+      backdrop-filter: blur(14px);
+
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.95),
+        0 8px 24px rgba(147,197,253,0.14);
+    }
+
+    h2 {
+      color: #3b82f6;
+
+      margin-bottom: 10px;
+
+      font-size: 2rem;
+    }
+
+    /* ===== PORTFOLIO ===== */
+
+    .portfolio-grid {
+      display: grid;
+
+      grid-template-columns: repeat(5, 1fr);
+
+      gap: 20px;
+
+      margin-top: 25px;
+    }
+
+    .portfolio-item {
+      background: rgba(255,255,255,0.88);
+
+      border-radius: 25px;
+
+      overflow: hidden;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.95),
+        0 8px 24px rgba(147,197,253,0.14);
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-6px) scale(1.03);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 280px;
+
+      object-fit: cover;
+    }
+
+    .portfolio-item p {
+      padding: 15px;
+
+      text-align: center;
+    }
+
+    /* ===== LIGHTBOX ===== */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+
+      background: rgba(180,210,255,0.35);
+
+      display: none;
+
+      justify-content: center;
+      align-items: center;
+
+      z-index: 9999;
+
+      backdrop-filter: blur(12px);
+    }
+
+    .popup-msg {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(180,210,255,0.35);
+
+  backdrop-filter: blur(12px);
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 99999;
+}
+
+.popup-box {
+
+  width: 420px;
+
+  background: rgba(255,255,255,0.88);
+
+  border-radius: 35px;
+
+  padding: 35px;
+
+  text-align: center;
+
+  box-shadow: 0 0 35px rgba(147,197,253,0.25);
+
+  position: relative;
+}
+
+.popup-box h2 {
+
+  color: #3b82f6;
+
+  margin-bottom: 15px;
+}
+
+.popup-box p {
+
+  color: #64748b;
+
+  line-height: 1.6;
+}
+
+.popup-close {
+
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 14px;
+
+  background: rgba(147,197,253,0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.popup-close:hover {
+
+  transform: scale(1.1);
+
+  background: rgba(147,197,253,0.35);
+}
+
+    .lightbox-img {
+      max-width: 85%;
+      max-height: 85%;
+
+      border-radius: 25px;
+
+      border: 3px solid rgba(255,255,255,0.7);
+
+      box-shadow: 0 0 40px rgba(125,211,252,0.5);
+    }
+
+    .close-btn {
+      position: absolute;
+
+      top: 30px;
+      right: 40px;
+
+      width: 55px;
+      height: 55px;
+
+      border-radius: 18px;
+
+      background: rgba(255,255,255,0.25);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+
+      font-size: 1.8rem;
+
+      cursor: pointer;
+    }
+
+    /* ===== PROJETOS ===== */
+
+    .projetos-grid {
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+      gap: 25px;
+
+      margin-top: 25px;
+    }
+
+    .projeto-card {
+      background: rgba(255,255,255,0.92);
+
+      border-radius: 28px;
+
+      padding: 25px;
+
+      text-align: center;
+
+      box-shadow: 0 8px 24px rgba(147,197,253,0.14);
+
+      transition: 0.3s;
+    }
+
+    .projeto-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .projeto-thumb {
+      width: 90px;
+      height: 90px;
+
+      margin: auto;
+      margin-bottom: 20px;
+
+      border-radius: 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 2.5rem;
+
+      background: linear-gradient(135deg, #bfdbfe, #dbeafe);
+    }
+
+    .projeto-card button {
+      margin-top: 15px;
+
+      border: none;
+
+      padding: 12px 20px;
+
+      border-radius: 999px;
+
+      background: linear-gradient(135deg, #93c5fd, #bfdbfe);
+
+      color: #1e3a8a;
+
+      font-weight: 600;
+
+      cursor: pointer;
+    }
+
+    /* ===== RESPONSIVO ===== */
+
+    @media (max-width: 1100px) {
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 768px) {
+
+      .navbar {
+        flex-direction: column;
+        gap: 20px;
+
+        padding: 30px 20px;
+      }
+
+      .hero-banner {
+        height: 400px;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .hero-content h3 {
+        font-size: 1.3rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- LIGHTBOX -->
+
+  <div class="lightbox" id="lightbox">
+
+    <span class="close-btn">✕</span>
+
+    <img class="lightbox-img" src="">
+
+  </div>
+  <div class="popup-msg" id="popupMsg">
+
+  <div class="popup-box">
+
+    <span class="popup-close">✕</span>
+
+    <h2>✨ Em desenvolvimento</h2>
+
+    <p>
+      Os jogos ainda não foram implementados no site.
+    </p>
+
+  </div>
+
+</div>
+
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <div class="logo-area">
+
+      <div class="circle-btn">⌂</div>
+
+      <div class="circle-btn plus">+</div>
+
+    </div>
+
+    <ul class="nav-links">
+
+      <li><a href="#" class="active">Home</a></li>
+
+      <li><a href="#sobre">Sobre</a></li>
+
+      <li><a href="#portfolio">Portfólio</a></li>
+
+      <li><a href="#faculdade">Projetos</a></li>
+
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+<section class="hero-banner">
+
+  <div class="hero-left">
+
+    <span class="tag">Olá! Eu sou</span>
+
+    <h1>Maxyne Sanches</h1>
+
+    <h3>Artista Digital & Estudante ddo IFRJ - CST Jogos Digitais</h3>
+
+    <p>
+      Faço arte para quem love.art
+    </p>
+
+  </div>
+
+  <div class="hero-right">
+
+    <img src="img/Max.jpg" class="hero-character">
+
+  </div>
+
+</section>
+
+  <!-- CONTAINER -->
+
+  <div class="container">
+
+    <!-- SOBRE -->
+
+    <section class="card" id="sobre">
+
+      <h2>Sobre Mim ✦</h2>
+
+      <p>
+        Me chamo Maxyne Sanches, tenho 18 anos, moro em Miguel Pereira, RJ. 
+        Estudo na graduação de Jogos Digitais - IFRJ.
+        Eu trabalho como artista, fazendo comissões de artes digitais e ilustrador freelancer, atuando em ilustrações
+        para livros, retratos, pôsteres, etc.
+      </p>
+
+    </section>
+
+    <!-- PORTFOLIO -->
+
+    <section class="card" id="portfolio">
+
+      <h2>Artwork ✦</h2>
+
+      <p>Alguns dos meus trabalhos mais recentes.</p>
+
+      <div class="portfolio-grid">
+
+        <div class="portfolio-item" onclick="openImage(this)">
+          <img src="img/arte1.jpg">
+          <p>Arte 1</p>
+        </div>
+
+        <div class="portfolio-item" onclick="openImage(this)">
+          <img src="img/arte2.jpg">
+          <p>Arte 2</p>
+        </div>
+
+        <div class="portfolio-item" onclick="openImage(this)">
+          <img src="img/arte6.jpg">
+          <p>Arte 3</p>
+        </div>
+
+        <div class="portfolio-item" onclick="openImage(this)">
+          <img src="img/arte3.jpg">
+          <p>Arte 4</p>
+        </div>
+
+        <div class="portfolio-item" onclick="openImage(this)">
+          <img src="img/arte4.jpg">
+          <p>Arte 5</p>
+        </div>
+        <div class="portfolio-item" onclick="openImage(this)">
+          <img src="img/arte5.jpg">
+          <p>Arte 6</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FACULDADE -->
+
+    <section class="card" id="faculdade">
+
+      <h2>Projetos da Faculdade ✦</h2>
+
+      <p>
+        Aqui ficarão os jogos e projetos do curso.
+      </p>
+
+      <div class="projetos-grid">
+
+        <div class="projeto-card">
+
+          <div class="projeto-thumb">🎮</div>
+
+          <h3>Nome do Projeto</h3>
+
+          <p>Descrição do projeto.</p>
+
+          <button onclick="abrirPopup()">
+  Ver Projeto
+</button>
+
+        </div>
+
+        <div class="projeto-card">
+
+          <div class="projeto-thumb">🕹️</div>
+
+          <h3>Projeto Futuro</h3>
+
+          <p>Espaço reservado.</p>
+
+          <button onclick="abrirPopup()">
+  Em breve
+</button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    const lightbox = document.getElementById('lightbox');
+
+    const lightboxImg = document.querySelector('.lightbox-img');
+
+    const closeBtn = document.querySelector('.close-btn');
+
+    function openImage(element) {
+
+      const img = element.querySelector('img');
+
+      lightbox.style.display = 'flex';
+
+      lightboxImg.src = img.src;
+
+    }
+
+    closeBtn.addEventListener('click', () => {
+
+      lightbox.style.display = 'none';
+
+    });
+
+    lightbox.addEventListener('click', (e) => {
+
+      if (e.target === lightbox) {
+
+        lightbox.style.display = 'none';
+
+      }
+
+    });
+
+    const popup = document.getElementById('popupMsg');
+
+const popupClose = document.querySelector('.popup-close');
+
+function abrirPopup() {
+
+  popup.style.display = 'flex';
+
+}
+
+popupClose.addEventListener('click', () => {
+
+  popup.style.display = 'none';
+
+});
+
+popup.addEventListener('click', (e) => {
+
+  if (e.target === popup) {
+
+    popup.style.display = 'none';
+
+  }
+
+});
+
+  </script>
+
+</body>
+</html>
